@@ -1,13 +1,13 @@
 Name:           glew
 Version:        2.1.0
-Release:        3
+Release:        4
 Summary:        The OpenGL Extension Wrangler Library
 License:        BSD and MIT
 URL:            http://glew.sourceforge.net
 
 Source0:        https://sourceforge.net/projects/glew/files/glew/%{version}/glew-%{version}.tgz
 Patch0000:      glew-2.1.0-install.patch
-BuildRequires:  libGLU-devel
+BuildRequires:  libGLU-devel gcc
 
 Provides:       libGLEW = %{version}-%{release}
 Obsoletes:      libGLEW < %{version}-%{release}
@@ -61,5 +61,9 @@ chmod 0755 $RPM_BUILD_ROOT%{_libdir}/*.so*
 %doc doc/*
 
 %changelog
+* Wed Jun 2 2021 baizhonggui <baizhonggui@huawei.com> - 2.1.0-4
+- Fixed make: cc: No such file or directory
+- Add gcc in BuildRequires
+
 * Wed Nov 20 2019 yangjian<yangjian79@huawei.com> - 2.1.0-3
 - Package init
