@@ -1,6 +1,6 @@
 Name:           glew
 Version:        2.1.0
-Release:        6
+Release:        7
 Summary:        The OpenGL Extension Wrangler Library
 License:        BSD-3-Clause and MIT
 URL:            http://glew.sourceforge.net
@@ -13,6 +13,7 @@ Provides:       libGLEW = %{version}-%{release}
 Obsoletes:      libGLEW < %{version}-%{release}
 
 Patch6000:      backport-0001-Include-description-of-glew-in-README.md.patch
+Patch6001:      backport-0001-Fixed-compilation-with-current-mesa-versions.patch
 
 %description
 OpenGL Extension Wrangler Library (GLEW) is a cross-platform
@@ -63,6 +64,9 @@ chmod 0755 $RPM_BUILD_ROOT%{_libdir}/*.so*
 %doc doc/*
 
 %changelog
+* Fri Jan 6 2023 mengwenhua<mengwenhua@xfusion.com> - 2.1.0-7
+- Fixed compilation with current mesa versions.
+
 * Thu Jan 5 2023 mengwenhua<mengwenhua@xfusion.com> - 2.1.0-6
 - Type:bugfix
 - CVE:NA
