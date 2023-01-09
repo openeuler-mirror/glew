@@ -1,0 +1,26 @@
+From f5f69b25eb3495775aef94f443487a4295c0a57e Mon Sep 17 00:00:00 2001
+From: Olli Kallioinen <olli.kallioinen@iki.fi>
+Date: Fri, 29 Dec 2017 16:54:53 +0200
+Subject: [PATCH] Fix for issue #169 (glew cmake project requires a c++
+ compiler)
+
+---
+ build/cmake/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/build/cmake/CMakeLists.txt b/build/cmake/CMakeLists.txt
+index 5081e0f..d724e10 100644
+--- a/build/cmake/CMakeLists.txt
++++ b/build/cmake/CMakeLists.txt
+@@ -2,7 +2,7 @@ if ( NOT DEFINED CMAKE_BUILD_TYPE )
+   set( CMAKE_BUILD_TYPE Release CACHE STRING "Build type" )
+ endif ()
+ 
+-project (glew)
++project (glew C)
+ 
+ cmake_minimum_required (VERSION 2.8.12)
+ 
+-- 
+2.37.3.windows.1
+
