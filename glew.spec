@@ -1,6 +1,6 @@
 Name:           glew
 Version:        2.1.0
-Release:        8
+Release:        9
 Summary:        The OpenGL Extension Wrangler Library
 License:        BSD-3-Clause and MIT
 URL:            http://glew.sourceforge.net
@@ -40,6 +40,9 @@ Development files for glew
 cp /usr/lib/rpm/%{_vendor}/config.guess config/
 
 %build
+%if "%toolchain" == "clang"
+    export SYSTEM=linux-clang
+%endif
 %make_build CFLAGS.EXTRA="$RPM_OPT_FLAGS -fPIC" includedir=%{_includedir} STRIP= LIBDIR=%{_libdir} PKGDIR=%{_libdir}/pkgconfig
 
 %install
@@ -65,6 +68,9 @@ chmod 0755 $RPM_BUILD_ROOT%{_libdir}/*.so*
 %doc doc/*
 
 %changelog
+* Fri Apr 14 2023 jammyjellyfish - 2.1.0-9
+- Support build with clang
+
 * Sat Jan 7 2023 mengwenhua <mengwenhua@xfusion.com> - 2.1.0-8
 - glew cmake project requires a c++ compiler
 
